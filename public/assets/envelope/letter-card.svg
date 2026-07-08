@@ -1,0 +1,31 @@
+<svg width="620" height="520" viewBox="0 0 620 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <filter id="shadow" x="0" y="0" width="620" height="520" filterUnits="userSpaceOnUse">
+    <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#4E3B3B" flood-opacity=".12"/>
+  </filter>
+  <filter id="paperNoise" x="0" y="0" width="620" height="520" filterUnits="userSpaceOnUse">
+    <feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="table" tableValues="0 .055"/></feComponentTransfer>
+  </filter>
+  <linearGradient id="paper" x1="120" y1="70" x2="500" y2="450" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FFFDF9"/>
+    <stop offset=".52" stop-color="#FFF8F2"/>
+    <stop offset="1" stop-color="#F3E4E2"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="180" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#ECD995"/>
+    <stop offset=".5" stop-color="#C8A84E"/>
+    <stop offset="1" stop-color="#F6E7B0"/>
+  </linearGradient>
+</defs>
+<g filter="url(#shadow)">
+  <path d="M113 52 C144 34 476 34 507 52 C520 59 528 74 528 90 L528 444 C528 468 508 488 484 488 H136 C112 488 92 468 92 444 L92 90 C92 74 100 59 113 52Z" fill="url(#paper)" stroke="#D7BD70" stroke-width="2.3"/>
+  <rect x="92" y="50" width="436" height="438" fill="white" opacity=".22" filter="url(#paperNoise)"/>
+  <path d="M157 110 C222 94 398 94 463 110" stroke="url(#gold)" stroke-width="3.2" fill="none" opacity=".78"/>
+  <text x="310" y="214" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-weight="700" fill="#9E842A" letter-spacing="7">J &amp; C</text>
+  <path d="M206 258 H414" stroke="url(#gold)" stroke-width="2.3"/>
+  <text x="310" y="326" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#7B6159">Cumpleaños</text>
+  <text x="310" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#7B6159">Inolvidable</text>
+</g>
+</svg>

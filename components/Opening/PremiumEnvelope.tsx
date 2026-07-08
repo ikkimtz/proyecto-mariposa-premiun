@@ -1,5 +1,142 @@
 "use client";
-import {motion} from "framer-motion";
-type Props={isOpening:boolean;onOpen:()=>void};
-export function PremiumEnvelope({isOpening,onOpen}:Props){return <button className="relative h-[340px] w-[400px] max-w-[97vw] border-0 bg-transparent p-0 outline-none" aria-label="Abrir invitación" onClick={onOpen}><motion.svg viewBox="0 0 760 640" className="h-full w-full overflow-visible drop-shadow-[0_32px_42px_rgba(78,59,59,.20)]" animate={{scale:isOpening?[1,1.015,1.08]:1,y:isOpening?[0,-4,-14]:0}} transition={{duration:2.8,ease:[.2,.8,.2,1]}}><defs><filter id="paperNoise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer></filter><filter id="waxShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#713437" floodOpacity=".30"/></filter><linearGradient id="paper" x1="150" y1="120" x2="610" y2="540"><stop stopColor="#fffefa"/><stop offset=".45" stopColor="#fff6f1"/><stop offset="1" stopColor="#f3e0e2"/></linearGradient><linearGradient id="flap" x1="170" y1="150" x2="590" y2="360"><stop stopColor="#fff8fb"/><stop offset=".52" stopColor="#ead4e5"/><stop offset="1" stopColor="#ffefed"/></linearGradient><linearGradient id="inside" x1="380" y1="158" x2="380" y2="520"><stop stopColor="#e8b8c7"/><stop offset="1" stopColor="#fff4f2"/></linearGradient><linearGradient id="gold" x1="250" y1="0" x2="510" y2="0"><stop stopColor="#ecd995"/><stop offset=".5" stopColor="#c8a84e"/><stop offset="1" stopColor="#f6e7b0"/></linearGradient><radialGradient id="wax" cx="0" cy="0" r="1" gradientTransform="translate(380 354) rotate(45) scale(92)"><stop stopColor="#ffc3b9"/><stop offset=".38" stopColor="#f28c8c"/><stop offset="1" stopColor="#b64b50"/></radialGradient><radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(245 170) rotate(55) scale(280)"><stop stopColor="white" stopOpacity=".84"/><stop offset="1" stopColor="white" stopOpacity="0"/></radialGradient></defs><ellipse cx="380" cy="558" rx="215" ry="36" fill="#4E3B3B" opacity=".13"/><motion.g animate={{y:isOpening?[118,78,8,-78]:118,rotate:isOpening?[0,-.7,1.1,-1.1]:0,scale:isOpening?[1,1,1.02,1.06]:1}} transition={{duration:2.4,ease:[.2,.8,.2,1],times:[0,.36,.72,1]}} style={{transformOrigin:"380px 250px"}}><path d="M216 80 C245 62,515 62,544 80 C554 86,560 98,560 112 L560 360 C560 379,545 394,526 394 L234 394 C215 394,200 379,200 360 L200 112 C200 98,206 86,216 80 Z" fill="url(#paper)" stroke="#D7BD70" strokeWidth="2"/><rect x="200" y="78" width="360" height="316" fill="white" opacity=".22" filter="url(#paperNoise)"/><path d="M242 128 C292 116,468 116,518 128" fill="none" stroke="url(#gold)" strokeWidth="3" opacity=".78"/><text x="380" y="205" textAnchor="middle" fontFamily="Georgia, serif" fontSize="42" fontWeight="700" fill="#9E842A" letterSpacing="6">J &amp; C</text><path d="M296 240 H464" stroke="url(#gold)" strokeWidth="2"/><text x="380" y="292" textAnchor="middle" fontFamily="Georgia, serif" fontSize="29" fill="#7B6159">Cumpleaños Inolvidable</text></motion.g><path d="M151 230 C171 184,207 166,252 166 H508 C553 166,589 184,609 230 L609 498 C609 529,584 554,553 554 H207 C176 554,151 529,151 498 Z" fill="url(#inside)" opacity=".78" stroke="#D7BD70" strokeWidth="2.2"/><motion.g animate={{rotateX:isOpening?178:0,y:isOpening?-8:0}} transition={{duration:1.22,delay:isOpening?.75:0,ease:[.2,.8,.2,1]}} style={{transformOrigin:"380px 408px",transformBox:"fill-box"}}><path d="M171 237 C191 194,225 179,265 179 H495 C535 179,569 194,589 237 L380 408 Z" fill="url(#flap)" stroke="#D7BD70" strokeWidth="2.4"/><path d="M208 234 C255 194,506 194,553 234" stroke="white" strokeOpacity=".52" strokeWidth="2" fill="none"/></motion.g><path d="M151 233 L380 414 L609 233 L609 498 C609 529,584 554,553 554 H207 C176 554,151 529,151 498 Z" fill="url(#paper)" stroke="#D7BD70" strokeWidth="2.4"/><path d="M151 233 L380 414 L609 233 L609 498 C609 529,584 554,553 554 H207 C176 554,151 529,151 498 Z" fill="white" opacity=".18" filter="url(#paperNoise)"/><path d="M154 496 L316 355" stroke="#C8A84E" strokeOpacity=".34" strokeWidth="2"/><path d="M606 496 L444 355" stroke="#C8A84E" strokeOpacity=".34" strokeWidth="2"/><path d="M151 233 C219 284,300 354,380 414 C460 354,541 284,609 233" stroke="white" strokeOpacity=".38" strokeWidth="2" fill="none"/><path d="M151 233 L380 414 L609 233 L609 498 C609 529,584 554,553 554 H207 C176 554,151 529,151 498 Z" fill="url(#glow)" opacity=".45"/><motion.g filter="url(#waxShadow)" animate={{scale:isOpening?[1,1.08,1,.72,.12]:[1,1.035,1],opacity:isOpening?[1,1,1,.68,0]:1,rotate:isOpening?[0,-6,10,22,40]:0,x:isOpening?[0,0,18,32,48]:0,y:isOpening?[0,0,-18,16,48]:0}} transition={{duration:isOpening?1.05:2.8,repeat:isOpening?0:Infinity,ease:"easeInOut"}} style={{transformOrigin:"380px 354px"}}><path d="M380 288 C405 284,431 301,437 327 C451 341,446 369,429 385 C421 410,394 421,371 413 C345 420,321 406,313 383 C293 368,291 339,309 323 C315 299,341 285,365 290 C370 289,375 288,380 288 Z" fill="url(#wax)"/><path d="M333 333 C351 309,397 300,425 326" stroke="white" strokeOpacity=".34" strokeWidth="8" strokeLinecap="round" fill="none"/><circle cx="380" cy="354" r="50" stroke="white" strokeOpacity=".32" strokeWidth="2" fill="none"/><text x="380" y="364" textAnchor="middle" fontFamily="Georgia, serif" fontSize="31" fontWeight="700" fill="white">J&amp;C</text></motion.g><g opacity=".84"><path d="M105 158 C133 122,178 124,190 160 C201 194,164 217,134 201 C103 185,83 184,105 158Z" fill="#E8B8C7"/><path d="M145 177 C169 144,208 160,199 195 C190 231,141 227,132 196" fill="#DCCEF8"/><path d="M171 218 C201 215,222 241,196 264 C174 284,142 262,153 234" fill="#AFC9B0" opacity=".82"/><circle cx="157" cy="185" r="12" fill="white" opacity=".72"/></g><g opacity=".78" transform="translate(565 140) rotate(28)"><path d="M38 18 C62 -7,101 2,104 36 C106 70,65 84,43 60 C19 34,12 44,38 18Z" fill="#DCCEF8"/><path d="M74 52 C102 28,139 47,126 82 C113 117,67 107,61 76" fill="#E8B8C7"/><path d="M86 105 C115 98,141 121,119 147 C99 170,62 151,70 120" fill="#AFC9B0" opacity=".82"/></g></motion.svg><BurstButterfly isOpening={isOpening} side="left"/><BurstButterfly isOpening={isOpening} side="right" gold/></button>}
-function BurstButterfly({isOpening,side,gold=false}:{isOpening:boolean;side:"left"|"right";gold?:boolean}){const color=gold?"from-[#f5dd83] to-gold":"from-lavender to-coral";const left=side==="left";return <motion.span className={`absolute top-[130px] z-20 h-8 w-10 opacity-0 ${left?"left-[92px]":"right-[92px]"}`} animate={{opacity:isOpening?[0,0,1,1,0]:0,y:isOpening?[0,0,-28,-82,-138]:0,x:isOpening?[0,0,left?-22:22,left?-82:82,left?-134:134]:0,rotate:isOpening?[0,0,left?-12:14,left?-30:32,left?-42:46]:0}} transition={{duration:1.8,delay:left?1.08:1.16}}><span className="relative block h-8 w-10"><span className={`absolute left-0 top-1 h-7 w-5 origin-bottom rounded-[70%_40%_70%_40%] bg-gradient-to-br ${color} animate-[wing_.55s_ease-in-out_infinite_alternate]`}/><span className={`absolute right-0 top-1 h-7 w-5 origin-bottom scale-x-[-1] rounded-[70%_40%_70%_40%] bg-gradient-to-br ${color} animate-[wing_.55s_ease-in-out_infinite_alternate]`}/><span className="absolute left-1/2 top-2 h-5 w-[2px] -translate-x-1/2 rounded-full bg-[#7B6159]/40"/></span></motion.span>}
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+type PremiumEnvelopeProps = {
+  isOpening: boolean;
+  onOpen: () => void;
+};
+
+export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
+  return (
+    <button
+      className="relative h-[370px] w-[430px] max-w-[98vw] border-0 bg-transparent p-0 outline-none"
+      aria-label="Abrir invitación"
+      onClick={onOpen}
+    >
+      <motion.div
+        className="absolute inset-0"
+        animate={{ scale: isOpening ? [1, 1.015, 1.08] : 1, y: isOpening ? [0, -5, -16] : 0 }}
+        transition={{ duration: 2.8, ease: [0.2, 0.8, 0.2, 1] }}
+      >
+        <Image
+          src="/assets/envelope/envelope-base.svg"
+          alt="Sobre premium"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute left-1/2 top-[22px] z-10 h-[260px] w-[310px] -translate-x-1/2"
+        animate={{
+          y: isOpening ? [112, 72, -8, -92] : 112,
+          rotate: isOpening ? [0, -0.7, 1.1, -1.1] : 0,
+          scale: isOpening ? [1, 1, 1.02, 1.06] : 1
+        }}
+        transition={{ duration: 2.4, ease: [0.2, 0.8, 0.2, 1], times: [0, 0.36, 0.72, 1] }}
+      >
+        <Image
+          src="/assets/envelope/letter-card.svg"
+          alt="Carta de invitación"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute inset-0 z-20"
+        animate={{ rotateX: isOpening ? 178 : 0, y: isOpening ? -8 : 0 }}
+        transition={{ duration: 1.22, delay: isOpening ? 0.75 : 0, ease: [0.2, 0.8, 0.2, 1] }}
+        style={{ transformOrigin: "50% 66%" }}
+      >
+        <Image
+          src="/assets/envelope/envelope-flap.svg"
+          alt="Solapa del sobre"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute left-1/2 top-[178px] z-30 h-[118px] w-[118px] -translate-x-1/2"
+        animate={{
+          scale: isOpening ? [1, 1.08, 1, 0.72, 0.12] : [1, 1.035, 1],
+          opacity: isOpening ? [1, 1, 1, 0.68, 0] : 1,
+          rotate: isOpening ? [0, -6, 10, 22, 40] : 0,
+          x: isOpening ? [0, 0, 18, 32, 48] : 0,
+          y: isOpening ? [0, 0, -18, 16, 48] : 0
+        }}
+        transition={{ duration: isOpening ? 1.05 : 2.8, repeat: isOpening ? 0 : Infinity, ease: "easeInOut" }}
+      >
+        <Image
+          src="/assets/envelope/wax-seal.svg"
+          alt="Sello J&C"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      <Image
+        src="/assets/florals/floral-left.svg"
+        alt=""
+        width={145}
+        height={145}
+        className="pointer-events-none absolute left-[-4px] top-[20px] z-40 select-none"
+        draggable={false}
+      />
+      <Image
+        src="/assets/florals/floral-right.svg"
+        alt=""
+        width={150}
+        height={150}
+        className="pointer-events-none absolute right-[-10px] top-[18px] z-40 select-none"
+        draggable={false}
+      />
+      <Image
+        src="/assets/decorations/sparkles.svg"
+        alt=""
+        width={180}
+        height={135}
+        className="pointer-events-none absolute left-1/2 top-[-10px] z-0 -translate-x-1/2 select-none opacity-70"
+        draggable={false}
+      />
+
+      <BurstButterfly isOpening={isOpening} side="left" />
+      <BurstButterfly isOpening={isOpening} side="right" gold />
+    </button>
+  );
+}
+
+function BurstButterfly({ isOpening, side, gold = false }: { isOpening: boolean; side: "left" | "right"; gold?: boolean }) {
+  const leftSide = side === "left";
+  return (
+    <motion.span
+      className={`absolute top-[150px] z-50 h-[46px] w-[54px] opacity-0 ${leftSide ? "left-[88px]" : "right-[88px]"}`}
+      animate={{
+        opacity: isOpening ? [0, 0, 1, 1, 0] : 0,
+        y: isOpening ? [0, 0, -28, -88, -146] : 0,
+        x: isOpening ? [0, 0, leftSide ? -22 : 22, leftSide ? -92 : 92, leftSide ? -152 : 152] : 0,
+        rotate: isOpening ? [0, 0, leftSide ? -12 : 14, leftSide ? -30 : 32, leftSide ? -42 : 46] : 0
+      }}
+      transition={{ duration: 1.85, delay: leftSide ? 1.1 : 1.18 }}
+    >
+      <Image
+        src={gold ? "/assets/butterflies/butterfly-gold.svg" : "/assets/butterflies/butterfly-coral.svg"}
+        alt=""
+        fill
+        className="object-contain"
+        draggable={false}
+      />
+    </motion.span>
+  );
+}
