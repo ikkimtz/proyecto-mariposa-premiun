@@ -1,5 +1,16 @@
-# Proyecto Mariposa — Premium Edition v1.0
+# Parche v1.1.2 — Ocultar carta en reposo
 
-Consulta `docs/MANUAL_USUARIO.md`.
+Este parche corrige de forma estricta que la carta se vea fuera del sobre.
 
-Rutas: `/` y `/admin`.
+## Reemplaza solo este archivo
+
+```text
+components/Opening/PremiumEnvelope.tsx
+```
+
+## Qué cambia
+
+- La carta tiene `opacity: 0` cuando el sobre está cerrado.
+- La carta aparece solo cuando inicia la animación.
+- Se añadió una segunda capa del sobre como máscara visual encima de la carta.
+- No necesitas volver a subir `public/assets`.
