@@ -15,31 +15,16 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
       aria-label="Abrir invitación"
       onClick={onOpen}
     >
-      {/* Carta: ahora queda DETRÁS del sobre al inicio */}
-      <motion.div
-        className="absolute left-1/2 top-[22px] z-10 h-[260px] w-[310px] -translate-x-1/2"
-        animate={{
-          y: isOpening ? [190, 150, 55, -58] : 190,
-          rotate: isOpening ? [0, -0.7, 1.1, -1.1] : 0,
-          scale: isOpening ? [1, 1, 1.02, 1.06] : 1
-        }}
-        transition={{
-          duration: 2.4,
-          ease: [0.2, 0.8, 0.2, 1],
-          times: [0, 0.36, 0.72, 1]
-        }}
-      >
-        <Image
-          src="/assets/envelope/letter-card.svg"
-          alt="Carta de invitación"
-          fill
-          priority
-          className="object-contain select-none"
-          draggable={false}
-        />
-      </motion.div>
+      <Image
+        src="/assets/decorations/sparkles.svg"
+        alt=""
+        width={180}
+        height={135}
+        className="pointer-events-none absolute left-1/2 top-[-10px] z-0 -translate-x-1/2 select-none opacity-70"
+        draggable={false}
+      />
 
-      {/* Frente/base del sobre: por encima de la carta para ocultarla al inicio */}
+      {/* Base del sobre */}
       <motion.div
         className="absolute inset-0 z-20"
         animate={{
@@ -58,13 +43,58 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         />
       </motion.div>
 
-      {/* Solapa: encima del sobre al inicio, se abre después */}
+      {/* Carta: invisible al inicio para que no parezca fuera del sobre */}
       <motion.div
-        className="absolute inset-0 z-30"
+        className="absolute left-1/2 top-[22px] z-25 h-[260px] w-[310px] -translate-x-1/2"
+        initial={false}
+        animate={{
+          opacity: isOpening ? [0, 0, 0.55, 1, 1] : 0,
+          y: isOpening ? [230, 190, 122, 34, -52] : 230,
+          rotate: isOpening ? [0, 0, -0.5, 1.1, -1.1] : 0,
+          scale: isOpening ? [0.98, 0.98, 1, 1.02, 1.06] : 0.98
+        }}
+        transition={{
+          duration: 2.45,
+          ease: [0.2, 0.8, 0.2, 1],
+          times: [0, 0.3, 0.52, 0.76, 1]
+        }}
+      >
+        <Image
+          src="/assets/envelope/letter-card.svg"
+          alt="Carta de invitación"
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      {/* Frente del sobre duplicado como máscara visual, encima de la carta durante reposo */}
+      <motion.div
+        className="absolute inset-0 z-30 pointer-events-none"
+        animate={{
+          scale: isOpening ? [1, 1.015, 1.08] : 1,
+          y: isOpening ? [0, -5, -16] : 0
+        }}
+        transition={{ duration: 2.8, ease: [0.2, 0.8, 0.2, 1] }}
+      >
+        <Image
+          src="/assets/envelope/envelope-base.svg"
+          alt=""
+          fill
+          priority
+          className="object-contain select-none"
+          draggable={false}
+        />
+      </motion.div>
+
+      {/* Solapa */}
+      <motion.div
+        className="absolute inset-0 z-40"
         animate={{
           rotateX: isOpening ? 178 : 0,
           y: isOpening ? -8 : 0,
-          opacity: isOpening ? [1, 1, 0.82] : 1
+          opacity: isOpening ? [1, 1, 0.78] : 1
         }}
         transition={{
           duration: 1.22,
@@ -87,7 +117,7 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
 
       {/* Sello */}
       <motion.div
-        className="absolute left-1/2 top-[178px] z-40 h-[118px] w-[118px] -translate-x-1/2"
+        className="absolute left-1/2 top-[178px] z-50 h-[118px] w-[118px] -translate-x-1/2"
         animate={{
           scale: isOpening ? [1, 1.08, 1, 0.72, 0.12] : [1, 1.035, 1],
           opacity: isOpening ? [1, 1, 1, 0.68, 0] : 1,
@@ -111,13 +141,12 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         />
       </motion.div>
 
-      {/* Flores decorativas */}
       <Image
         src="/assets/florals/floral-left.svg"
         alt=""
         width={145}
         height={145}
-        className="pointer-events-none absolute left-[-4px] top-[20px] z-50 select-none"
+        className="pointer-events-none absolute left-[-4px] top-[20px] z-[60] select-none"
         draggable={false}
       />
 
@@ -126,16 +155,7 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         alt=""
         width={150}
         height={150}
-        className="pointer-events-none absolute right-[-10px] top-[18px] z-50 select-none"
-        draggable={false}
-      />
-
-      <Image
-        src="/assets/decorations/sparkles.svg"
-        alt=""
-        width={180}
-        height={135}
-        className="pointer-events-none absolute left-1/2 top-[-10px] z-0 -translate-x-1/2 select-none opacity-70"
+        className="pointer-events-none absolute right-[-10px] top-[18px] z-[60] select-none"
         draggable={false}
       />
 
@@ -158,7 +178,7 @@ function BurstButterfly({
 
   return (
     <motion.span
-      className={`absolute top-[150px] z-50 h-[46px] w-[54px] opacity-0 ${
+      className={`absolute top-[150px] z-[70] h-[46px] w-[54px] opacity-0 ${
         leftSide ? "left-[88px]" : "right-[88px]"
       }`}
       animate={{
