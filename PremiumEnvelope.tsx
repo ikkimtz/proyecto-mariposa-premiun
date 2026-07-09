@@ -67,9 +67,9 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         />
       </motion.div>
 
-      {/* Ajuste v2.0.1: sello movido 22 px hacia la izquierda */}
+      {/* Ajuste v2.0.2: sello desplazado 38 px hacia la izquierda */}
       <motion.div
-        className="absolute left-[calc(50%-22px)] top-[178px] z-40 h-[118px] w-[118px] -translate-x-1/2"
+        className="absolute left-[calc(50%-38px)] top-[178px] z-40 h-[118px] w-[118px] -translate-x-1/2"
         animate={{
           scale: isOpening ? [1, 1.08, 0.78, 0.18] : [1, 1.035, 1],
           opacity: isOpening ? [1, 1, 0.55, 0] : 1,

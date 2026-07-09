@@ -1,0 +1,18 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <filter id="waxShadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="10" stdDeviation="7" flood-color="#713437" flood-opacity=".32"/>
+  </filter>
+  <radialGradient id="wax" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(83 65) rotate(45) scale(122)">
+    <stop stop-color="#FFC3B9"/>
+    <stop offset=".38" stop-color="#F28C8C"/>
+    <stop offset="1" stop-color="#B64B50"/>
+  </radialGradient>
+</defs>
+<g filter="url(#waxShadow)">
+  <path d="M110 28 C137 24 165 42 172 70 C187 84 182 116 164 134 C156 163 126 176 99 167 C70 175 43 160 34 133 C11 116 9 83 30 65 C37 38 66 22 93 30 C98 29 104 28 110 28Z" fill="url(#wax)"/>
+  <path d="M58 76 C79 48 131 38 163 68" stroke="white" stroke-opacity=".34" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="110" cy="102" r="56" stroke="white" stroke-opacity=".32" stroke-width="2.5"/>
+  <text x="110" y="113" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="white">J&amp;C</text>
+</g>
+</svg>
