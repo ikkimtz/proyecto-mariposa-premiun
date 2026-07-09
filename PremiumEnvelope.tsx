@@ -67,9 +67,10 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         />
       </motion.div>
 
-      {/* v2.0.3: sintaxis Tailwind corregida. Mueve el sello 55 px hacia la izquierda */}
+      {/* v2.0.4: centrado real. No usa -translate-x porque Framer Motion lo sobrescribe. */}
       <motion.div
-        className="absolute left-[calc(50%_-_55px)] top-[178px] z-40 h-[118px] w-[118px] -translate-x-1/2"
+        className="absolute top-[178px] z-40 h-[118px] w-[118px]"
+        style={{ left: "calc(50% - 59px)" }}
         animate={{
           scale: isOpening ? [1, 1.08, 0.78, 0.18] : [1, 1.035, 1],
           opacity: isOpening ? [1, 1, 0.55, 0] : 1,
