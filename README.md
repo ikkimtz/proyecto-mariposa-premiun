@@ -1,11 +1,13 @@
-# Ajuste v2.0.3 — Sello centrado
+# Ajuste v2.0.5 — Sello con contenedor fijo
 
-Reemplaza solo:
+Reemplaza estos archivos:
 
 ```text
 components/Opening/PremiumEnvelope.tsx
+PremiumEnvelope.tsx
 ```
 
 Cambio:
-- Corrige la sintaxis Tailwind del posicionamiento.
-- Mueve el sello 55 px hacia la izquierda.
+- El sello ahora tiene un contenedor externo fijo centrado.
+- Framer Motion ya no puede sobrescribir el centrado.
+- Se incluye también `PremiumEnvelope.tsx` en raíz por si el proyecto estaba usando esa copia.

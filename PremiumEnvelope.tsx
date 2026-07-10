@@ -67,32 +67,33 @@ export function PremiumEnvelope({ isOpening, onOpen }: PremiumEnvelopeProps) {
         />
       </motion.div>
 
-      {/* v2.0.4: centrado real. No usa -translate-x porque Framer Motion lo sobrescribe. */}
-      <motion.div
-        className="absolute top-[178px] z-40 h-[118px] w-[118px]"
-        style={{ left: "calc(50% - 59px)" }}
-        animate={{
-          scale: isOpening ? [1, 1.08, 0.78, 0.18] : [1, 1.035, 1],
-          opacity: isOpening ? [1, 1, 0.55, 0] : 1,
-          rotate: isOpening ? [0, -6, 18, 38] : 0,
-          x: isOpening ? [0, 0, 24, 48] : 0,
-          y: isOpening ? [0, -12, 18, 44] : 0
-        }}
-        transition={{
-          duration: isOpening ? 1.05 : 2.8,
-          repeat: isOpening ? 0 : Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <Image
-          src="/assets/envelope/wax-seal.svg"
-          alt="Sello J&C"
-          fill
-          priority
-          className="object-contain select-none"
-          draggable={false}
-        />
-      </motion.div>
+      {/* v2.0.5: centrado fijo. El contenedor externo centra; Framer solo anima el interior. */}
+      <div className="absolute left-1/2 top-[178px] z-40 h-[118px] w-[118px] -translate-x-1/2">
+        <motion.div
+          className="relative h-full w-full"
+          animate={{
+            scale: isOpening ? [1, 1.08, 0.78, 0.18] : [1, 1.035, 1],
+            opacity: isOpening ? [1, 1, 0.55, 0] : 1,
+            rotate: isOpening ? [0, -6, 18, 38] : 0,
+            x: isOpening ? [0, 0, 24, 48] : 0,
+            y: isOpening ? [0, -12, 18, 44] : 0
+          }}
+          transition={{
+            duration: isOpening ? 1.05 : 2.8,
+            repeat: isOpening ? 0 : Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <Image
+            src="/assets/envelope/wax-seal.svg"
+            alt="Sello J&C"
+            fill
+            priority
+            className="object-contain select-none"
+            draggable={false}
+          />
+        </motion.div>
+      </div>
 
       <motion.div
         animate={{ opacity: isOpening ? [1, 1, 0] : 1, y: isOpening ? [0, -8, -18] : 0 }}
