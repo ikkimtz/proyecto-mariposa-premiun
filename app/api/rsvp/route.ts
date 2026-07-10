@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
-  assertSupabaseConfig,
+  buildSupabaseRestUrl,
   normalizeName,
   supabaseHeaders,
 } from "@/lib/supabase-rest";
@@ -14,8 +14,8 @@ type RSVPBody = {
 };
 
 function isAdmin(request: NextRequest) {
-  const configuredPassword = process.env.ADMIN_PASSWORD;
-  const receivedPassword = request.headers.get("x-admin-password");
+  const configuredPassword = process.env.ADMIN_PASSWORD?.trim();
+  const receivedPassword = request.headers.get("x-admin-password")?.trim();
 
   return Boolean(
     configuredPassword &&
@@ -45,12 +45,12 @@ export async function POST(request: NextRequest) {
     }
 
     const normalizedName = normalizeName(name);
-    const { supabaseUrl } = assertSupabaseConfig();
 
     const existingResponse = await fetch(
-      `${supabaseUrl}/rest/v1/rsvp?normalized_name=eq.${encodeURIComponent(
-        normalizedName
-      )}&select=id`,
+      buildSupabaseRestUrl("rsvp", {
+        normalized_name: `eq.${normalizedName}`,
+        select: "id",
+      }),
       {
         headers: supabaseHeaders(),
         cache: "no-store",
@@ -65,7 +65,9 @@ export async function POST(request: NextRequest) {
 
     if (existing.length > 0) {
       const updateResponse = await fetch(
-        `${supabaseUrl}/rest/v1/rsvp?id=eq.${existing[0].id}`,
+        buildSupabaseRestUrl("rsvp", {
+          id: `eq.${existing[0].id}`,
+        }),
         {
           method: "PATCH",
           headers: supabaseHeaders({ Prefer: "return=representation" }),
@@ -89,7 +91,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const insertResponse = await fetch(`${supabaseUrl}/rest/v1/rsvp`, {
+    const insertResponse = await fetch(buildSupabaseRestUrl("rsvp"), {
       method: "POST",
       headers: supabaseHeaders({ Prefer: "return=representation" }),
       body: JSON.stringify({
@@ -125,10 +127,11 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const { supabaseUrl } = assertSupabaseConfig();
-
     const response = await fetch(
-      `${supabaseUrl}/rest/v1/rsvp?select=id,name,attendance,created_at,updated_at&order=created_at.desc`,
+      buildSupabaseRestUrl("rsvp", {
+        select: "id,name,attendance,created_at,updated_at",
+        order: "created_at.desc",
+      }),
       {
         headers: supabaseHeaders(),
         cache: "no-store",
